@@ -6,7 +6,7 @@ local LocalPlayer = Players.LocalPlayer
 local AUTOEXEC_CODE = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/perfectusmim1/animeastral/refs/heads/main/animedice.lua"))()]]
 
 if game.PlaceId ~= 113290951185459 then
-    error("[Anime Dice - Perfectus] This script only works in Anime Dice.", 0)
+    error("[Anime Dice - Alex] This script only works in Anime Dice.", 0)
 end
 do
     local blocked = false
@@ -20,9 +20,9 @@ do
     end)
     if blocked then
         pcall(function()
-            game:GetService("StarterGui"):SetCore("SendNotification", { Title = "Anime Dice - Perfectus", Text = "Already running.", Duration = 4 })
+            game:GetService("StarterGui"):SetCore("SendNotification", { Title = "Anime Dice - Alex", Text = "Already running.", Duration = 4 })
         end)
-        warn("[Anime Dice - Perfectus] Already running.")
+        warn("[Anime Dice - Alex] Already running.")
         return
     end
 end
@@ -46,21 +46,21 @@ do
         if attempt < 4 then task.wait(2) end
     end
     if not Rayfield then
-        error("[Anime Dice - Perfectus] Rayfield failed to load after 4 tries. Re-execute. Last error: " .. tostring(lastErr))
+        error("[Anime Dice - Alex] Rayfield failed to load after 4 tries. Re-execute. Last error: " .. tostring(lastErr))
     end
 end
 
 local window = Rayfield:CreateWindow({
     name = "Anime Dice",
-    subtitle = "v1.6 | Perfectus",
+    subtitle = "v1.6 | Alex",
     sidebarLayout = true,
     theme = "default",
     icon = "rbxassetid://100284944801383",
     configuration = {
         autoSave = false,
         autoLoad = false,
-        fileName = "Anime Dice - Perfectus",
-        customFolder = "Anime Dice - Perfectus",
+        fileName = "Anime Dice - Alex",
+        customFolder = "Anime Dice - Alex",
     },
 })
 
@@ -187,7 +187,7 @@ end
 
 G.ok = G.Network ~= nil and G.DC ~= nil
 
-local function log(...) print("[Anime Dice - Perfectus]", ...) end
+local function log(...) print("[Anime Dice - Alex]", ...) end
 local function notify(title, content)
     pcall(function() window:Notify({ title = title, content = content, duration = 4 }) end)
 end
@@ -400,7 +400,7 @@ end
 local UIS = game:GetService("UserInputService")
 local TS = game:GetService("TeleportService")
 local HTS = game:GetService("HttpService")
-local CFG_FOLDER = "Anime Dice - Perfectus"
+local CFG_FOLDER = "Anime Dice - Alex"
 local CFG_FOLDER_OLD = "AnimeDiceHub" -- pre-rename folder: read once, saves go to the new one
 local function existingPath(newPath, oldPath)
     local okE, has = pcall(function() return isfile(newPath) end)
@@ -1214,7 +1214,7 @@ local function sendRollHook(url, e, cfg, chance)
         timestamp = hookStamp(),
     }
     if thumb then emb.thumbnail = { url = thumb } end
-    return postWebhook(url, { username = "Anime Dice - Perfectus", embeds = { emb } })
+    return postWebhook(url, { username = "Anime Dice - Alex", embeds = { emb } })
 end
 local function anyRollHook()
     return F.rollHookOn and true or false
@@ -1279,7 +1279,7 @@ local function sendStatsHook(url)
             table.insert(embeds, item)
         end
     end
-    return postWebhook(url, { username = "Anime Dice - Perfectus", embeds = embeds })
+    return postWebhook(url, { username = "Anime Dice - Alex", embeds = embeds })
 end
 local lastStatsHook = 0
 local function statsHookTick()
@@ -3168,7 +3168,7 @@ sendTradeHook = function(url, partner, ownOff, otherOff, result)
         footer = { text = LocalPlayer.DisplayName },
         timestamp = hookStamp(),
     }
-    return postWebhook(url, { username = "Anime Dice - Perfectus", embeds = { emb } })
+    return postWebhook(url, { username = "Anime Dice - Alex", embeds = { emb } })
 end
 sendTowerHook = function(url, towerName, floor0, floorN, drops, bonus, result)
     local cleared = (result ~= "Exited")
@@ -3254,7 +3254,7 @@ sendTowerHook = function(url, towerName, floor0, floorN, drops, bonus, result)
         end
     end
     end
-    return postWebhook(url, { username = "Anime Dice - Perfectus", embeds = embeds })
+    return postWebhook(url, { username = "Anime Dice - Alex", embeds = embeds })
 end
 sendTradeChat = function()
     local raw = tostring(F.tradeChatMsg or "")
@@ -3632,5 +3632,5 @@ task.spawn(function()
     end
 end)
 
-notify("Anime Dice - Perfectus", "Loaded (build " .. tostring(BUILD) .. "). Pick a tab and enable features.")
+notify("Anime Dice - Alex", "Loaded (build " .. tostring(BUILD) .. "). Pick a tab and enable features.")
 log("Hub started (build " .. tostring(BUILD) .. ").")
